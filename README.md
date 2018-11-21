@@ -3,7 +3,7 @@
 
 ## Overview
 
-This is a Node.js server 
+This is a Node.js and Express server that utilizes sequelize.js to make function based queries rather than raw SQL. The database is a postgres database hosted by aws RDS, and the server runs on AWS EC2.
 
 ## Setup
 1. Clone the repository
