@@ -1,0 +1,36 @@
+const Events = require('../models').Events;
+
+module.exports = {
+  list(req, res) {
+    return Events
+     .findAll()
+     .then((events) => res.status(200).send(events))
+     .catch((error) => { res.status(400).send(error); });
+  },
+
+  add(req, res){
+    return Events
+      .create({
+        name: req.body.name,
+	
+	description: req.body.description,
+	owners: req.body.owners,
+	attendancelist: req.body.attendanceList,
+	completed: req.body.completed,
+      })
+     .then((users) => res.status(201).send(users))
+     .catch((error) => res.status(400).send(error));
+  },
+
+  getByCompleted(req, res){
+    return Events
+     .findAll({
+	where: {
+	  completed: true,
+        }
+     })
+     .then((events) => res.status(200).send(events))
+     .catch((error) => { res.status(400).send(error); });
+  },
+
+};
