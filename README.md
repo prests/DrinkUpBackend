@@ -1,2 +1,2 @@
-Alt-H1 SD&D Drink Up Backend Repository
-Alt-H2 Shayne Preston, Dylan Cheung, Jeffrey Poegel, Jason Hall
+# SD&D Drink Up Backend Repository
+## Shayne Preston, Dylan Cheung, Jeffrey Poegel, Jason Hall
