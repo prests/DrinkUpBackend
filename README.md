@@ -18,7 +18,8 @@ This is a Node.js and Express server that utilizes sequelize.js to make function
 
 + Get a list of all users (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users
 + Add an user (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users
-
++ Get a user by unique ID (:id is replaced by ID) (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/:id
++ Get a user by unique email (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/email
 
 #### Events:
 
