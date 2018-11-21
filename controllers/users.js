@@ -24,7 +24,7 @@ module.exports = {
         password: req.body.password,
       })
       .then((users) => res.status(201).send(users))
-      .catch((error) => res.status(400).send(error));
+      .catch((error) => res.status(400).send(400));
   },
 
   getByEmail(req, res) {
