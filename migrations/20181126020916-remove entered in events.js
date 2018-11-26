@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn("Events", "createdAt");
+    return queryInterface.removeColumn("Events", "startTime");
   },
 
   down: (queryInterface, Sequelize) => {
