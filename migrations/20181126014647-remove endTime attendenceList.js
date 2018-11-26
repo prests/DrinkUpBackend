@@ -7,7 +7,8 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.addColumn("Attendees", "createdAt", {
-      type: Sequelize.DATE
+      type: Sequelize.DATE,
+      allowNull: false,
     })
   }
 };
