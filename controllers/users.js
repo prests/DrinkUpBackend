@@ -16,6 +16,7 @@ module.exports = {
   },
 
   add(req, res){
+    console.log(req);
     return Users
       .create({
         firstName: req.body.firstName,
