@@ -11,8 +11,8 @@ module.exports = {
   getById(req, res) {
     return Users
       .findById(req.params.id)
-      .then((users) => res.status(200).send(users))
-      .catch((error) => { res.status(400).send(error); });
+      .then((users) => {res.status(200).send(users); console.log(users);})
+      .catch((error) => { res.status(400).send(error); console.log(error);});
   },
 
   add(req, res){
