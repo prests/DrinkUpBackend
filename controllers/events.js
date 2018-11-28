@@ -49,6 +49,18 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
+  getTenEventsByOwner(req, res) {
+    return Events
+      .findAll({
+        where: {
+          owner: req.body.owner,
+          completed: req.body.completed,
+        }
+      })
+      .then((events) => res.status(200).send(events))
+      .catch((error) => { res.status(400).send(error); });
+  },
+
   delete(req, res) {
     return Events
       .findById(req.params.id)

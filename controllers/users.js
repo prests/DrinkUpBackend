@@ -30,9 +30,9 @@ module.exports = {
   getByEmail(req, res) {
     return Users
       .findAll({
-	 where: {
-	    email: req.body.email,
-	 }
+        where: {
+          email: req.body.email,
+        }
       })
       .then((users) => res.status(200).send(users))
       .catch((error) => { res.status(400).send(error); });
