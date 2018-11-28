@@ -19,12 +19,9 @@ module.exports = {
     return Events
       .create({
         name: req.body.name,
-	startTime: req.body.starTime,
-	endTime: req.body.endTime,
-	description: req.body.description,
-	owners: req.body.owners,
-	attendancelist: req.body.attendanceList,
-	completed: req.body.completed,
+        description: req.body.description,
+        owner: req.body.owner,
+        completed: req.body.completed,
       })
      .then((users) => res.status(201).send(users))
      .catch((error) => res.status(400).send(error));
