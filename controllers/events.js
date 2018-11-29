@@ -50,6 +50,7 @@ module.exports = {
   },
 
   getEventsByOwner(req, res) {
+    console.log(req.body);
     return Events
       .findAll({
         where: {
