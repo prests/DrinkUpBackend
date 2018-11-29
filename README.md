@@ -17,13 +17,77 @@ This is a Node.js and Express server that utilizes sequelize.js to make function
 #### Users:
 
 + Get a list of all users (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users
-+ Add an user (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users
+
 + Get a user by unique ID (:id is replaced by ID) (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/:id
-+ Get a user by unique email (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/email
+params:{
+    id (integer)
+}
+
++ Get a user by unique email (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users/email
+body:{
+    email (string)
+}
+
++ Sign a user in (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users/signin
+body:{
+    email (string)
+    password (string)
+}
+
++ Sign a user up (POST REQUEST):
+https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users/signup
+body:{
+    firstName (string)
+    lastName (string)
+    email (string)
+    password (string)
+}
+
++ Update a user info (:id is replaced by ID) (PUT REQUEST):
+https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/users/:id
+params:{
+    id (integer)
+}
+body:{
+    firstName (string)
+    lastName (string)
+    email (string)
+    password (string)
+}
 
 #### Events:
 
 + Get a list of all events (GET REQUEST):  https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events
+
 + Add an event (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events
+body:{
+    name (string)
+    description (string)
+    owner (integer)
+    completed (boolean)
+}
+
 + Get a list of all events that are completed (GET REQUEST):  https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events/completed
+
 + Get a list of all events that are incompleted (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events/incompleted
+
+#### Attendees:
+
++ Get a list of all attendees (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees
+
++ Add an attendee (POST REQUEST):
+https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/atendees
+body:{
+    firstName (string)
+    middleName (string)
+    lastName (string)
+    dob (date)
+    age (integer)
+    licenseNumber (integer)
+}
+
++ Set if an attendee has left (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/toggle
+body:{
+    licenseNumber (integer)
+    left (boolean)
+}

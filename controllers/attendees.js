@@ -19,11 +19,11 @@ module.exports = {
     return Attendees
       .create({
         firstName: req.body.firstName,
-        middle_Name: req.body.middleName,
+        middle_name: req.body.middleName,
         lastName: req.body.lastName,
         dateOfBirth: req.body.dob,
         age: req.body.age,
-        license_Number: req.body.licenseNumber,
+        license_number: req.body.licenseNumber,
       })
       .then((attendees) => res.status(201).send(attendees))
       .catch((error) => res.status(400).send(error));
@@ -36,7 +36,7 @@ module.exports = {
       },
       {
         where: {
-          license_Number: req.body.licenseNumber
+          license_number: req.body.licenseNumber
         }
       })
       .then((attendees) => res.status(201).send(attendees))

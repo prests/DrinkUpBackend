@@ -15,6 +15,23 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); console.log(error);});
   },
 
+  updateById(req, res){
+    return Users
+      .update({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then((users) => res.status(201).send(users))
+      .catch((error) => res.status(400).send(error));
+  },
+
   add(req, res){
     console.log(req);
     return Users
