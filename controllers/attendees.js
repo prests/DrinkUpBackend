@@ -46,6 +46,7 @@ module.exports = {
   },
 
   add(req, res){
+    console.log(req);
     return Attendees
       .create({
         firstName: req.body.firstName,
