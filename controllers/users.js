@@ -28,6 +28,24 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
+  signIn(req, res){
+    return Users
+      .findOne({
+        where: {
+          email: req.body.email
+        }
+      })
+      .then((users) => {
+        if(users.password == req.body.password){
+          res.status(201).send(true)
+        }
+        else{
+          res.status(400).send(false)
+        }
+      })
+      .catch((error) => res.status(400).send(error));
+  }
+
   getByEmail(req, res) {
     return Users
       .findAll({
