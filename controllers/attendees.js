@@ -45,7 +45,7 @@ module.exports = {
   toggleLeft(req, res){
     return Attendees
       .update({
-        left: false
+        left: true
       },
       {
         where: {
@@ -59,7 +59,7 @@ module.exports = {
   toggleReturn(req, res){
     return Attendees
       .update({
-        left: true
+        left: false
       },
       {
         where: {
