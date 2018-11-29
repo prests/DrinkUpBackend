@@ -43,18 +43,6 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  toggleLeft(req, res){
-    return Attendees
-      .update({
-        where: {
-          license_Number: req.body.licenseNumber
-        },
-        left: req.body.left
-      })
-      .then((attendees) => res.status(201).send(attendees))
-      .catch((error) => res.status(400).send(error));
-  },
-
   delete(req, res) {
     return Attendees
       .findById(req.params.id)
