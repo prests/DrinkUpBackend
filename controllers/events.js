@@ -64,7 +64,7 @@ module.exports = {
   },
 
   getEventsByOwner(req, res) {
-    console.log(req.body);
+    console.log(req);
     return Events
       .findAll({
         where: {
