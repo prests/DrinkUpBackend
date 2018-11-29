@@ -44,7 +44,7 @@ module.exports = {
         }
       })
       .catch((error) => res.status(400).send(error));
-  }
+  },
 
   getByEmail(req, res) {
     return Users
