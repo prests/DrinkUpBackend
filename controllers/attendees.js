@@ -36,6 +36,7 @@ module.exports = {
         age: req.body.age,
         license_number: req.body.licenseNumber,
         eventId: req.body.eventId,
+        left: false,
       })
       .then((attendees) => res.status(201).send(attendees))
       .catch((error) => res.status(400).send(error));
