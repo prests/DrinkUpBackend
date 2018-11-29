@@ -28,7 +28,7 @@ module.exports = {
       .then((attendees) => res.status(201).send(attendees))
       .catch((error) => res.status(400).send(error));
   },
-/*
+
   toggleLeft(req, res){
     return Attendees
       .update({
@@ -36,11 +36,13 @@ module.exports = {
       },
       {
         where: {
-
+          license_Number: req.body.licenseNumber
         }
       })
+      .then((attendees) => res.status(201).send(attendees))
+      .catch((error) => res.status(400).send(error));
   },
-*/
+
   toggleLeft(req, res){
     return Attendees
       .update({
