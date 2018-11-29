@@ -49,6 +49,19 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
+  closeEvent(req, res){
+    return Events
+      .update({
+        completed: true
+      }, {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then((events) => res.status(200).send(events))
+      .catch((error) => { res.status(400).send(error); });
+  },
+
   getEventsByOwner(req, res) {
     console.log(req.body);
     return Events

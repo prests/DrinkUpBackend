@@ -13,10 +13,12 @@ router.get('/api/users/:id', usersController.getById);
 router.post('/api/users/signin', usersController.signIn);
 /*Events*/
 router.get('/api/events', eventsController.list);
+router.get('/api/events/:id', eventsController.getById);
 router.post('/api/events', eventsController.add);
 router.get('/api/events/completed', eventsController.getByCompleted);
 router.get('/api/events/incompleted', eventsController.getByIncompleted);
 router.post('/api/events/ownerEvents', eventsController.getEventsByOwner);
+router.put('/api/events/closeEvent/:id', eventsController.closeEvent);
 /*Attendees*/
 router.get('/api/attendees', attendeesController.list);
 router.post('/api/attendees', attendeesController.add);
