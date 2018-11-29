@@ -6,7 +6,7 @@ const eventsController = require('../controllers').events;
 const attendeesController = require('../controllers').attendees;
 /*Users*/
 router.get('/api/users', usersController.list);
-router.post('/api/users', usersController.add);
+router.post('/api/users/signup', usersController.add);
 router.post('/api/users/email', usersController.getByEmail);
 router.get('/api/users/:id', usersController.getById);
 router.post('/api/users/signin', usersController.signIn);
