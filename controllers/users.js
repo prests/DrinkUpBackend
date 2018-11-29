@@ -37,7 +37,9 @@ module.exports = {
       })
       .then((users) => {
         if(users.password == req.body.password){
-          res.status(201).send(users.id)
+          res.status(201).send({
+            id: users.id
+          })
         }
         else{
           res.status(400).send(null)
