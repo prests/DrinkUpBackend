@@ -9,6 +9,7 @@ router.get('/api/users', usersController.list);
 router.post('/api/users', usersController.add);
 router.post('/api/users/email', usersController.getByEmail);
 router.get('/api/users/:id', usersController.getById);
+router.post('/api/users/signin', usersController.signIn);
 /*Events*/
 router.get('/api/events', eventsController.list);
 router.post('/api/events', eventsController.add);
