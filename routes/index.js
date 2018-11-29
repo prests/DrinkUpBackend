@@ -20,7 +20,8 @@ router.post('/api/events/ownerEvents', eventsController.getEventsByOwner);
 /*Attendees*/
 router.get('/api/attendees', attendeesController.list);
 router.post('/api/attendees', attendeesController.add);
-router.post('/api/attendees/toggle', attendeesController.toggleLeft);
+router.post('/api/attendees/left', attendeesController.toggleLeft);
+router.post('/api/attendees/enter', attendeesController.toggleReturn);
 router.post('/api/attendees/getEvents', attendeesController.getEvents);
 
 /* GET home page. */

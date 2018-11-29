@@ -45,7 +45,21 @@ module.exports = {
   toggleLeft(req, res){
     return Attendees
       .update({
-        left: req.body.left
+        left: false
+      },
+      {
+        where: {
+          license_number: req.body.licenseNumber
+        }
+      })
+      .then((attendees) => res.status(201).send(attendees))
+      .catch((error) => res.status(400).send(error));
+  },
+
+  toggleReturn(req, res){
+    return Attendees
+      .update({
+        left: true
       },
       {
         where: {
