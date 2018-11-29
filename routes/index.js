@@ -16,10 +16,12 @@ router.get('/api/events', eventsController.list);
 router.post('/api/events', eventsController.add);
 router.get('/api/events/completed', eventsController.getByCompleted);
 router.get('/api/events/incompleted', eventsController.getByIncompleted);
+router.post('/api/events/ownerEvents', eventsController.getEventsByOwner);
 /*Attendees*/
 router.get('/api/attendees', attendeesController.list);
 router.post('/api/attendees', attendeesController.add);
 router.post('/api/attendees/toggle', attendeesController.toggleLeft);
+router.post('/api/attendees/getEvents', attendeesController.getEvents);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

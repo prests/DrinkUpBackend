@@ -49,7 +49,7 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
-  getTenEventsByOwner(req, res) {
+  getEventsByOwner(req, res) {
     return Events
       .findAll({
         where: {

@@ -71,12 +71,17 @@ body:{
 
 + Get a list of all events that are incompleted (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events/incompleted
 
++ Get all the events of an owner (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events/ownerEvents
+body:{
+    owner (integer)
+    completed (boolean)
+}
+
 #### Attendees:
 
 + Get a list of all attendees (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees
 
-+ Add an attendee (POST REQUEST):
-https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/atendees
++ Add an attendee (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/atendees
 body:{
     firstName (string)
     middleName (string)
@@ -84,10 +89,16 @@ body:{
     dob (date)
     age (integer)
     licenseNumber (integer)
+    eventId (integer)
 }
 
 + Set if an attendee has left (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/toggle
 body:{
     licenseNumber (integer)
     left (boolean)
+}
+
++ Get all attendees for an eventId (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/getEvents
+body:{
+    eventId (integer)
 }

@@ -15,6 +15,17 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
+  getEvents(req, res){
+    return Attendees
+      .findAll({
+        where: {
+          eventId: req.body.eventId
+        }
+      })
+      .then((attendee) => res.status(200).send(attendee))
+      .catch((error) => { res.status(400).send(error); });
+  },
+
   add(req, res){
     return Attendees
       .create({
@@ -24,6 +35,7 @@ module.exports = {
         dateOfBirth: req.body.dob,
         age: req.body.age,
         license_number: req.body.licenseNumber,
+        eventId: req.body.eventId,
       })
       .then((attendees) => res.status(201).send(attendees))
       .catch((error) => res.status(400).send(error));

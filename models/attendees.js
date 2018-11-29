@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     age: DataTypes.INTEGER,
     left: DataTypes.BOOLEAN,
     license_number: DataTypes.INTEGER,
+    eventId: DataTypes.INTEGER,
   }, {});
   Attendees.associate = function(models) {
-    // associations can be defined here
   };
   return Attendees;
 };
