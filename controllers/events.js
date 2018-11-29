@@ -16,12 +16,13 @@ module.exports = {
   },
 
   add(req, res){
+    console.log(req);
     return Events
       .create({
         name: req.body.name,
         description: req.body.description,
         owner: req.body.owner,
-        completed: req.body.completed,
+        completed: false,
       })
      .then((users) => res.status(201).send(users))
      .catch((error) => res.status(400).send(error));
