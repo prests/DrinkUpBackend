@@ -1,3 +1,7 @@
+/**
+ * Router - Endpoint URLs to call Queries
+ * @author Shayne F. Preston <prests@rpi.edu>
+ */
 var express = require('express');
 var router = express.Router();
 

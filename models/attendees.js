@@ -1,3 +1,7 @@
+/**
+ * Attendees Model - Schema for Attendees table
+ * @author Shayne F. Preston <prests@rpi.edu>
+ */
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Attendees = sequelize.define('Attendees', {

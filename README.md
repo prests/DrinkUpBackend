@@ -77,6 +77,11 @@ body:{
     completed (boolean)
 }
 
++ Close an event (:id replaced by ID) (PUT REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events/closeEvent/:id
+params:{
+    owner (integer)
+}
+
 #### Attendees:
 
 + Get a list of all attendees (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees
@@ -92,10 +97,14 @@ body:{
     eventId (integer)
 }
 
-+ Set if an attendee has left (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/toggle
++ Set if an attendee has left (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/left
 body:{
-    licenseNumber (integer)
-    left (boolean)
+    id (integer)
+}
+
++ Set if an attendee has entered (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/enter
+body:{
+    id (integer)
 }
 
 + Get all attendees for an eventId (POST REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees/getEvents

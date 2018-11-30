@@ -1,7 +1,12 @@
+/**
+ * Attendees Controller - Queries for Attendees Table
+ * @author Shayne F. Preston <prests@rpi.edu>
+ */
+
 const Attendees = require('../models').Attendees;
 
 
-function getAge(dateString) {
+function getAge(dateString) { //Parses Date of Birth to suiteable types to calculate age
   var today = new Date();
   var birthDate = new Date(dateString);
   var age = today.getFullYear() - birthDate.getFullYear();
@@ -20,21 +25,21 @@ function getAge(dateString) {
 }
 
 module.exports = {
-  list(req, res) {
+  list(req, res) {//Returns every element in table
     return Attendees
      .findAll()
      .then((attendees) => res.status(200).send(attendees))
      .catch((error) => { res.status(400).send(error); });
   },
 
-  getById(req, res) {
+  getById(req, res) {//Search for an element by it's ID
     return Attendees
       .findById(req.params.id)
       .then((attendees) => res.status(200).send(attendees))
       .catch((error) => { res.status(400).send(error); });
   },
 
-  getEvents(req, res){
+  getEvents(req, res){//Search for elements given an EventId
     return Attendees
       .findAll({
         where: {
@@ -45,8 +50,7 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
-  add(req, res){
-    console.log(req);
+  add(req, res){//Create a new element
     return Attendees
       .create({
         firstName: req.body.firstName,
@@ -62,7 +66,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  toggleLeft(req, res){
+  toggleLeft(req, res){//Set element to left based on ID
     return Attendees
       .update({
         left: true
@@ -76,7 +80,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  toggleReturn(req, res){
+  toggleReturn(req, res){//Set elemet to not left based on ID
     return Attendees
       .update({
         left: false
@@ -90,7 +94,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  delete(req, res) {
+  delete(req, res) {//Remove an element from Table
     return Attendees
       .findById(req.params.id)
       .then(attendees => {
