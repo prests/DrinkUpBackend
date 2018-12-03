@@ -77,6 +77,11 @@ body:{
     completed (boolean)
 }
 
++ Close an event (:id replaced by ID) (PUT REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/events/closeEvent/:id
+params:{
+    id (integer)
+}
+
 #### Attendees:
 
 + Get a list of all attendees (GET REQUEST): https://ec2-18-217-242-211.us-east-2.compute.amazonaws.com:3000/api/attendees
