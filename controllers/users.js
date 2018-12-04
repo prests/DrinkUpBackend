@@ -1,21 +1,25 @@
+/**
+ * Users Controller - Queries for Aminstrators Table
+ * @author Shayne F. Preston <prests@rpi.edu>
+ */
 const Users = require('../models').Administrators;
 
 module.exports = {
-  list(req, res) {
+  list(req, res) {//return all admins
     return Users
      .findAll()
      .then((users) => res.status(200).send(users))
      .catch((error) => { res.status(400).send(error); });
   },
 
-  getById(req, res) {
+  getById(req, res) {//get and admin by ID
     return Users
       .findById(req.params.id)
       .then((users) => {res.status(200).send(users); console.log(users);})
       .catch((error) => { res.status(400).send(error); console.log(error);});
   },
 
-  updateById(req, res){
+  updateById(req, res){//update admin info
     return Users
       .update({
         firstName: req.body.firstName,
@@ -32,7 +36,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  add(req, res){
+  add(req, res){//create a new admin
     console.log(req);
     return Users
       .create({
@@ -45,7 +49,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  signIn(req, res){
+  signIn(req, res){//sign an admin in
     return Users
       .findOne({
         where: {
@@ -65,7 +69,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  getByEmail(req, res) {
+  getByEmail(req, res) {//get get an admin by email
     return Users
       .findAll({
         where: {
@@ -76,7 +80,7 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
-  delete(req, res) {
+  delete(req, res) {//delete an admin
     return Users
       .findById(req.params.id)
       .then(users => {

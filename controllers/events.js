@@ -1,22 +1,25 @@
+/**
+ * Events Controller - Queries for Events Table
+ * @author Shayne F. Preston <prests@rpi.edu>
+ */
 const Events = require('../models').Events;
 
 module.exports = {
-  list(req, res) {
+  list(req, res) {//Return all events
     return Events
      .findAll()
      .then((events) => res.status(200).send(events))
      .catch((error) => { res.status(400).send(error); });
   },
 
-  getById(req, res) {
+  getById(req, res) {//search for event by id
     return Events
       .findById(req.params.id)
       .then((events) => res.status(200).send(events))
       .catch((error) => { res.status(400).send(error); });
   },
 
-  add(req, res){
-    //console.log(req);
+  add(req, res){//create a new event
     return Events
       .create({
         name: req.body.name,
@@ -28,7 +31,7 @@ module.exports = {
      .catch((error) => res.status(400).send(error));
   },
 
-  getByCompleted(req, res){
+  getByCompleted(req, res){//get all completed events
     return Events
      .findAll({
 	where: {
@@ -39,7 +42,7 @@ module.exports = {
      .catch((error) => { res.status(400).send(error); });
   },
 
-  getByIncompleted(req, res){
+  getByIncompleted(req, res){//get all noncompleted events
     return Events
       .findAll({
          where: {
@@ -50,7 +53,7 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
-  closeEvent(req, res){
+  closeEvent(req, res){//Set an event to completed based on id
     return Events
       .update({
         completed: true
@@ -63,7 +66,7 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
-  getEventsByOwner(req, res) {
+  getEventsByOwner(req, res) {//get all events based on an ownerId
     //console.log(req);
     return Events
       .findAll({
@@ -76,7 +79,7 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
-  delete(req, res) {
+  delete(req, res) {//delete an event
     return Events
       .findById(req.params.id)
       .then(events => {

@@ -1,3 +1,7 @@
+/**
+ * Events Model - Schema for Events table
+ * @author Shayne F. Preston <prests@rpi.edu>
+ */
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Events = sequelize.define('Events', {
