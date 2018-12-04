@@ -44,7 +44,7 @@ module.exports = {
         email: req.body.email,
         password: req.body.password,
       })
-      .then((users) => res.status(201).send(users), console.log(res))
+      .then((users) => res.status(201).send(users), console.log(res.status))
       .catch((error) => res.status(400).send(error));
   },
 
@@ -70,7 +70,7 @@ module.exports = {
 
   getByEmail(req, res) {//get get an admin by email
     return Users
-      .findAll({
+      .findOne({
         where: {
           email: req.body.email,
         }
