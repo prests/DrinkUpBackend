@@ -16,7 +16,7 @@ module.exports = {
   },
 
   add(req, res){
-    console.log(req);
+    //console.log(req);
     return Events
       .create({
         name: req.body.name,
@@ -64,7 +64,7 @@ module.exports = {
   },
 
   getEventsByOwner(req, res) {
-    console.log(req);
+    //console.log(req);
     return Events
       .findAll({
         where: {
