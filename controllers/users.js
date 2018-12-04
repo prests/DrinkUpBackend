@@ -37,7 +37,6 @@ module.exports = {
   },
 
   add(req, res){//create a new admin
-    console.log(req);
     return Users
       .create({
         firstName: req.body.firstName,
@@ -45,7 +44,7 @@ module.exports = {
         email: req.body.email,
         password: req.body.password,
       })
-      .then((users) => res.status(201).send(users))
+      .then((users) => res.status(201).send(users), console.log(res))
       .catch((error) => res.status(400).send(error));
   },
 
