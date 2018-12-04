@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     dateOfBirth: DataTypes.DATEONLY,
     age: DataTypes.INTEGER,
     left: DataTypes.BOOLEAN,
-    license_number: DataTypes.INTEGER,
+    license_number: DataTypes.STRING(64),
     eventId: DataTypes.INTEGER,
   }, {});
   Attendees.associate = function(models) {
