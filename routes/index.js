@@ -25,6 +25,7 @@ router.post('/api/events/ownerEvents', eventsController.getEventsByOwner);
 router.put('/api/events/closeEvent/:id', eventsController.closeEvent);
 /*Attendees*/
 router.get('/api/attendees', attendeesController.list);
+router.get('/api/attendees/:id', attendeesController.getById);
 router.post('/api/attendees', attendeesController.add);
 router.post('/api/attendees/left', attendeesController.toggleLeft);
 router.post('/api/attendees/enter', attendeesController.toggleReturn);

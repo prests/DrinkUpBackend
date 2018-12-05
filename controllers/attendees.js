@@ -76,7 +76,7 @@ module.exports = {
           license_number: req.body.licenseNumber
         }
       })
-      .then((attendees) => res.status(201).send(attendees))
+      .then((attendees) => console.log(attendees), res.status(201).send(attendees))
       .catch((error) => res.status(400).send(error));
   },
 
