@@ -62,11 +62,12 @@ module.exports = {
         eventId: req.body.eventId,
         left: false,
       })
-      .then((attendees) => res.status(201).send(attendees))
+      .then((attendee) => res.status(201).send(attendee))
       .catch((error) => res.status(400).send(error));
   },
 
   toggleLeft(req, res){//Set element to left based on ID
+    console.log(req);
     return Attendees
       .update({
         left: true
