@@ -30,9 +30,10 @@ module.exports = {
       {
         where: {
           id: req.params.id
-        }
+        },
+        returning: true
       })
-      .then((users) => res.status(201).send(users))
+      .then((users) => res.status(201).send(users[1][0]))
       .catch((error) => res.status(400).send(error));
   },
 

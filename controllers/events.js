@@ -60,9 +60,10 @@ module.exports = {
       }, {
         where: {
           id: req.params.id
-        }
+        },
+        returning: true
       })
-      .then((events) => res.status(200).send(events))
+      .then((events) => res.status(200).send(events[1][0]))
       .catch((error) => { res.status(400).send(error); });
   },
 

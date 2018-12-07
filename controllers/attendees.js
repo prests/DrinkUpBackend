@@ -67,7 +67,6 @@ module.exports = {
   },
 
   toggleLeft(req, res){//Set element to left based on ID
-    console.log(req);
     return Attendees
       .update({
         left: true
@@ -75,9 +74,15 @@ module.exports = {
       {
         where: {
           license_number: req.body.licenseNumber
-        }
+        },
+        returning: true,
+        raw: true
       })
-      .then((attendees) => console.log(attendees), res.status(201).send(attendees))
+      .then(function(attendees){
+          attendeeId = { id: attendees[1][0].id};
+          console.log(attendeeId);
+          res.status(201).send(attendeeId);
+      })
       .catch((error) => res.status(400).send(error));
   },
 
@@ -89,9 +94,14 @@ module.exports = {
       {
         where: {
           license_number: req.body.licenseNumber
-        }
+        },
+        returning: true
       })
-      .then((attendees) => res.status(201).send(attendees))
+      .then(function(attendees){
+        attendeeId = { id: attendees[1][0].id};
+        console.log(attendeeId);
+        res.status(201).send(attendeeId);
+      })
       .catch((error) => res.status(400).send(error));
   },
 
