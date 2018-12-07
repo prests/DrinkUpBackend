@@ -82,18 +82,12 @@ module.exports = {
 
   delete(req, res) {//delete an event
     return Events
-      .findById(req.params.id)
-      .then(events => {
-        if (!events) {
-          return res.status(400).send({
-            message: 'Event Not Found',
-          });
+      .destroy({
+        where: {
+          id: req.params.id,
         }
-        return event
-          .destroy()
-          .then(() => res.status(204).send())
-          .catch((error) => res.status(400).send(error));
       })
+      .then(events => res.status(204).send(events))
       .catch((error) => res.status(400).send(error));
     },
 };

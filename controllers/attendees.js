@@ -107,18 +107,12 @@ module.exports = {
 
   delete(req, res) {//Remove an element from Table
     return Attendees
-      .findById(req.params.id)
-      .then(attendees => {
-        if (!attendees) {
-          return res.status(400).send({
-            message: 'Attendee Not Found',
-          });
+      .destroy({
+        where: {
+          id: req.params.id,
         }
-        return attendee
-          .destroy()
-          .then(() => res.status(204).send())
-          .catch((error) => res.status(400).send(error));
       })
+      .then(attendees => res.status(204).send(attendees))
       .catch((error) => res.status(400).send(error));
     },
 };
