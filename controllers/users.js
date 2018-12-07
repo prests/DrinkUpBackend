@@ -20,6 +20,7 @@ module.exports = {
   },
 
   updateById(req, res){//update admin info
+    console.log('here');
     return Users
       .update({
         firstName: req.body.firstName,
@@ -33,7 +34,10 @@ module.exports = {
         },
         returning: true
       })
-      .then((users) => res.status(201).send(users[1][0]))
+      .then(function(users){
+        console.log(users);
+        res.status(201).send(users);
+      })
       .catch((error) => res.status(400).send(error));
   },
 
@@ -82,18 +86,12 @@ module.exports = {
 
   delete(req, res) {//delete an admin
     return Users
-      .findById(req.params.id)
-      .then(users => {
-        if (!users) {
-          return res.status(400).send({
-            message: 'User Not Found',
-          });
+      .destroy({
+        where: {
+          id: req.params.id,
         }
-        return user
-          .destroy()
-          .then(() => res.status(204).send())
-          .catch((error) => res.status(400).send(error));
       })
+      .then(users => res.status(204).send(users))
       .catch((error) => res.status(400).send(error));
     },
 };
